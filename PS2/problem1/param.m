@@ -21,3 +21,4 @@ p.L = ones(p.S,1);
 % Tuning factor
 p.theta = .1;
 p.gamma = 1/20000;
+p.scaling = 8;
