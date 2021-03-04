@@ -26,7 +26,7 @@ while err>1e-5
     real_wage = (p.U .* nominal_wage)./price_index;
     L_final = L_current;
     L_new = (real_wage.^p.scaling)./sum(real_wage.^p.scaling);
-    L_current = (1-p.theta)*L_current - p.theta*L_new;
+    L_current = (1-p.theta)*L_current + p.theta*L_new;
     err = max(abs(L_current - L_final));
   
     
