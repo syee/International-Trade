@@ -8,6 +8,7 @@ function [lambda, w_new] = eq(p,tau,w,L)
 % wages
 err = 1;
 iter = 0;
+w = ones(p.S,1);
 
 while err>1e-3
     % wages
@@ -20,7 +21,7 @@ while err>1e-3
     % Updating wages using goods market clearing
     w_new = (1./L).*sum(lambda.*repmat((w.*L)',p.S,1),2); %sum over rows because we want lambda_ji
     
-    % Enforcing normalization
+    % Enforcing normalization 
     w_new = w_new./w_new(1,1);
 
     % Convergence criterion
@@ -32,8 +33,8 @@ while err>1e-3
     % Iteration counter
     iter = iter +1;
 
-    % Print Error 
-%     fprintf('Iteration Inner %.4f, Error %.4f \n',iter, err);
+    % Print Error 6
+    fprintf('Iteration Inner %.4f, Error %.4f \n',iter, err);
 
 end 
 
